@@ -15,6 +15,6 @@
   "scripts": {
     "watch": "node-sass-watcher sass/main.scss -o css/style.css -c \"node-sass <input> | postcss -u autoprefixer --autoprefixer.browsers=\"ie>=9\"\"",
     "minify": "postcss -u cssnano -o css/style.min.css css/style.css",
-    "build": "node-sass sass/main.scss | postcss -u autoprefixer --autoprefixer.browsers=\"ie>= 9\""
+    "build": "node-sass sass/main.scss | postcss -u autoprefixer -o css/style.css --autoprefixer.browsers=\"ie>= 9\""
   }
 }
