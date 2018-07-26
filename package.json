@@ -1,0 +1,17 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "main": "index.html",
+  "author": "OI",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "node-sass": "^4.9.2",
+    "node-sass-watcher": "^0.5.1",
+    "postcss-cli": "^4.1.1"
+  },
+  "scripts": {
+    "build": "node-sass-watcher sass/main.scss -o css/style.css -c \"node-sass <input> | postcss -u autoprefixer\""
+  }
+}

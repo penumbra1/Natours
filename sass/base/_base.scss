@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  width: 100%;
+  /* Relative to default font size */
+  font-size: 62.5%; // 16px * 62.5% = 10px
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  // @include respond(tab-port) {
+  //   font-size: 50%;
+  // }
+
+  // font-size remains 50% for all smaller displays
+}
+
+body {
+  padding: $body-padding;
+  background-color: $color-white;
+  box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}

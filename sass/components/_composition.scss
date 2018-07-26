@@ -1,0 +1,97 @@
+.composition {
+  position: relative;
+  @include respond(tab-port) {
+    top: 2rem;
+  }
+
+  &__photo {
+    position: absolute;
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    transition: all 0.2s;
+    outline-offset: 0.8rem;
+    outline: 0.8rem solid transparent;
+    will-change: scale;
+
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 33.333%;
+      outline-offset: 0.6rem;
+      outline-width: 0.6rem;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2);
+    }
+
+    @include respond(phone) {
+      outline-offset: 0.5rem;
+      outline-width: 0.5rem;
+    }
+
+    &--p1 {
+      &:hover {
+        transform-origin: 0 10%;
+      }
+
+      @include respond(tab-port) {
+        transform: scale(1.4);
+      }
+
+      &:hover {
+        @include respond(tab-port) {
+          transform-origin: -4% 18%;
+        }
+      }
+    }
+
+    &--p2 {
+      right: 0;
+      top: 4rem;
+      &:hover {
+        transform-origin: 120% center;
+      }
+
+      @include respond(tab-port) {
+        top: 3rem;
+        right: -2rem;
+        transform: scale(1.6);
+
+        &:hover {
+          transform-origin: 60% center;
+        }
+      }
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 12rem;
+
+      @include respond(tab-port) {
+        top: -3rem;
+        left: 1rem;
+        transform: scale(1.2);
+      }
+
+      &:hover {
+        @include respond(tab-port) {
+          transform-origin: 110% 10%;
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.5) translateY(-0.5rem);
+      outline-color: $color-primary;
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.45);
+      z-index: 1;
+
+      @include respond(tab-port) {
+        transform: scale(2.8);
+      }
+    }
+  }
+
+  &:hover > &__photo:not(:hover) {
+    transform: scale(0.9);
+  }
+}

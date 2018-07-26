@@ -1,0 +1,122 @@
+.popup {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color-black, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &__content {
+    display: flex;
+    margin: auto;
+    width: 85%;
+    max-width: 94rem;
+    background-color: $color-white;
+    border-radius: 3px;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    overflow: hidden;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.3s 0.2s;
+  }
+
+  &__left {
+    flex-basis: 40%;
+  }
+
+  &__img {
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  &__right {
+    flex-basis: 60%;
+    align-self: center;
+    padding: 3rem 5rem;
+    text-align: center;
+
+    .heading-tertiary {
+      text-align: left;
+    }
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      line-height: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    column-count: 2;
+    column-gap: 3rem;
+    column-rule: 1px solid $color-grey-light-2;
+    // Hyphens in Chrome only on Android and Mac for now
+    hyphens: auto;
+    text-align: left;
+  }
+
+  @include respond(tab-port) {
+    &__text {
+      column-count: unset;
+    }
+  }
+
+  @include respond(phone) {
+    &__left {
+      position: absolute;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    &__right {
+      flex-basis: 100%;
+      padding: 3rem 4rem;
+      text-align: center;
+
+      .heading-secondary {
+        display: block;
+        margin: auto;
+      }
+
+      .heading-tertiary {
+        width: 70%;
+      }
+    }
+  }
+}

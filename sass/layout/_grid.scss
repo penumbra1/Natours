@@ -1,0 +1,61 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include clearfix;
+
+  //Attribute selector for all columns
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin: auto;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 55% !important;
+      float: none;
+      margin: auto;
+    }
+
+    @include respond(phone) {
+      width: 75% !important;
+    }
+
+    @include respond(small-phone) {
+      width: 85% !important;
+    }
+  }
+
+  .col-1-of-2 {
+    width: getColWidth(1, 2, $gutter-horizontal);
+  }
+
+  .col-1-of-3 {
+    width: getColWidth(1, 3, $gutter-horizontal);
+  }
+
+  .col-2-of-3 {
+    width: getColWidth(2, 3, $gutter-horizontal);
+  }
+
+  .col-1-of-4 {
+    width: getColWidth(1, 4, $gutter-horizontal);
+  }
+
+  .col-2-of-4 {
+    width: getColWidth(2, 4, $gutter-horizontal);
+  }
+}

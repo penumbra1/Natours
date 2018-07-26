@@ -1,0 +1,62 @@
+.header {
+  height: calc(100vh - 2 *#{$body-padding});
+  position: relative;
+  background-size: cover;
+  background-position: top;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero-small.jpg");
+
+  // hero-small is 1200 px wide
+  // Larger image is needed for 2x displays over 600px wide
+  // 1x displays larger than 1200px also need the large image
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 75em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url("../img/hero.jpg");
+  }
+
+  @include respond(tab-port) {
+    // Body padding is removed from the top
+    height: calc(100vh - #{$body-padding});
+  }
+
+  @include section-skew-bottom;
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    @include respond(tab-port) {
+      top: 6rem;
+    }
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__heading-box {
+    width: 100%;
+    padding: 2rem 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* removes scrollbar during animation,
+        see https://github.com/daneden/animate.css/issues/679 */
+    overflow: hidden;
+    text-align: center;
+
+    @include respond(tab-port) {
+      top: 50%;
+    }
+  }
+}

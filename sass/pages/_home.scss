@@ -1,0 +1,100 @@
+.section-about {
+  @include section-under-skewed;
+  @include section-over-skewed;
+
+  background-color: $color-grey-light-1;
+
+  ::after {
+    margin-bottom: -($margin-biggest);
+
+    @include respond(tab-port) {
+      margin-bottom: $margin-biggest;
+    }
+  }
+}
+
+.section-features {
+  @include section-skew-both;
+  @include section-under-skewed;
+  @include section-over-skewed;
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/nat-4.jpg");
+  background-size: cover;
+}
+
+.section-tours {
+  @include section-straight;
+  @include section-under-skewed;
+
+  background-color: $color-grey-light-1;
+}
+
+.section-stories {
+  @include section-straight;
+
+  position: relative;
+}
+
+.section-book {
+  @include section-straight;
+
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+}
+
+.book {
+  @function gradient($slope, $width) {
+    @return linear-gradient(
+        $slope,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) $width,
+        transparent $width
+      ),
+      url("../img/nat-10.jpg");
+  }
+
+  background-image: gradient(105deg, 55%);
+
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+
+  @include respond(tab-port) {
+    background-image: gradient(105deg, 65%);
+  }
+
+  @include respond(phone) {
+    background-image: gradient(100deg, 75%);
+  }
+
+  @include respond(small-phone) {
+    background-image: gradient(97deg, 80%);
+  }
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+    text-align: center;
+
+    @include respond(tab-port) {
+      width: 60%;
+    }
+
+    @include respond(phone) {
+      width: 75%;
+      padding: 4rem;
+    }
+
+    @include respond(small-phone) {
+      width: 80%;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@function getColWidth($columns, $total, $gutter) {
+    $guttersTotal: ($total - 1) * $gutter;
+    $guttersCovered: ($columns - 1) * $gutter;
+    @return calc(#{$columns} * (100% - #{$guttersTotal}) / #{$total} + #{$guttersCovered});
+}

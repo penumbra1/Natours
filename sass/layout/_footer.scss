@@ -1,0 +1,78 @@
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 8rem 2rem;
+  font-size: 1.4rem;
+
+  @include respond(tab-port) {
+    text-align: center;
+  }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__logo {
+    width: 16rem;
+    height: auto;
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+
+      @include respond(small-phone) {
+        margin-right: 1.2rem;
+      }
+    }
+  }
+
+  // Hover on parent instead of link itself to avoid jitter
+  // https://www.reddit.com/r/css/comments/7xpy60/how_to_fix_the_jitter_in_this_simple_css_animation/
+  &__item:hover &__link {
+    transform: translateY(-0.5rem);
+    //box-shadow: 0 1rem 1rem rgba($color-black, .4);
+  }
+
+  &__link {
+    transition: all 0.2s;
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__copyright {
+    display: inline-block;
+    padding-top: 2rem;
+    float: right;
+    width: 72%;
+    border-top: 1px solid $color-grey-dark;
+
+    @include respond(tab-port) {
+      float: none;
+      width: 100%;
+      border-top: none;
+      margin-top: -4em;
+    }
+  }
+}
