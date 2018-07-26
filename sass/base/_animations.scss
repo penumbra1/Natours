@@ -1,3 +1,5 @@
+// Initial header animations
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -30,17 +32,7 @@
   }
 }
 
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translate(0 3rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0 0);
-  }
-}
+// Section headings (hover)
 
 @keyframes shineIn {
   to {
@@ -54,18 +46,6 @@
   }
   100% {
     background-position: 0% center;
-  }
-}
-
-@keyframes shake {
-  30% {
-    transform: translateX(5px);
-  }
-  70% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0);
   }
 }
 

@@ -72,10 +72,6 @@
     display: none;
   }
 
-  &__check-input:checked ~ &__check-label &__check-button::after {
-    // opacity: 1;
-  }
-
   &__check-input:checked ~ &__check-label &__check-button {
     background-color: $color-primary;
   }

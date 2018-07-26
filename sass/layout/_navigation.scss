@@ -135,7 +135,7 @@
       content: "";
       position: absolute;
       left: 0;
-      transition: all 0.2s;
+      transition: all 0.25s;
     }
 
     &::before {
@@ -148,11 +148,11 @@
   }
 
   &__button:hover &__icon::before {
-    top: -1rem;
+    top: -1.2rem;
   }
 
   &__button:hover &__icon::after {
-    top: 1rem;
+    top: 1.2rem;
   }
 
   &__checkbox:checked ~ &__button &__icon {

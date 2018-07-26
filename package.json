@@ -2,16 +2,19 @@
   "name": "natours",
   "version": "1.0.0",
   "main": "index.html",
-  "author": "OI",
+  "author": "Olga Isakova",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^8.4.1",
+    "cssnano": "^4.0.4",
     "node-sass": "^4.9.2",
     "node-sass-watcher": "^0.5.1",
     "postcss-cli": "^4.1.1"
   },
   "scripts": {
-    "build": "node-sass-watcher sass/main.scss -o css/style.css -c \"node-sass <input> | postcss -u autoprefixer\""
+    "watch": "node-sass-watcher sass/main.scss -o css/style.css -c \"node-sass <input> | postcss -u autoprefixer --autoprefixer.browsers=\"ie>=9\"\"",
+    "minify": "postcss -u cssnano -o css/style.min.css css/style.css",
+    "build": "node-sass sass/main.scss | postcss -u autoprefixer --autoprefixer.browsers=\"ie>= 9\""
   }
 }

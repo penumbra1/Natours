@@ -21,30 +21,8 @@
     transform: skew(-12deg, 0deg);
   }
 
-  @include respond(tab-port) {
-    padding: 4rem;
-  }
-
-  @include respond(phone) {
-    transform: none;
-
-    &__text .heading-tertiary {
-      text-align: center;
-    }
-  }
-
-  @include respond(small-phone) {
-    width: 85%;
-  }
-
-  & > * {
-    @include respond(phone) {
-      transform: none;
-    }
-  }
-
   &__text {
-    // Improve Chrome font rendering during animation
+    // A hack to improve Chrome font rendering during animation
     transform: translate3d(0, 0, 0);
     filter: blur(0.0000001px);
   }
@@ -54,22 +32,9 @@
     height: 15rem;
     float: left;
     position: relative;
-    isolation: isolate;
     margin-right: 3.5rem;
     clip-path: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
-
-    @include respond(phone) {
-      width: 20rem;
-      height: 20rem;
-      float: none;
-      margin: 0 auto 3rem auto;
-    }
-
-    @include respond(small-phone) {
-      width: 15rem;
-      height: 15rem;
-    }
   }
 
   &__img {
@@ -99,5 +64,35 @@
   &:hover &__img {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(65%);
+  }
+
+  @include respond(tab-port) {
+    padding: 4rem;
+  }
+
+  @include respond(phone) {
+    &::before {
+      transform: none;
+    }
+
+    &__text .heading-tertiary {
+      text-align: center;
+    }
+
+    &__shape {
+      width: 20rem;
+      height: 20rem;
+      float: none;
+      margin: 0 auto 3rem auto;
+    }
+  }
+
+  @include respond(small-phone) {
+    width: 85%;
+
+    &__shape {
+      width: 15rem;
+      height: 15rem;
+    }
   }
 }

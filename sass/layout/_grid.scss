@@ -11,7 +11,6 @@
 
   @include clearfix;
 
-  //Attribute selector for all columns
   [class^="col-"] {
     float: left;
 

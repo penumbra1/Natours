@@ -12,7 +12,6 @@
     transition: all 0.2s;
     outline-offset: 0.8rem;
     outline: 0.8rem solid transparent;
-    will-change: scale;
 
     @include respond(tab-port) {
       float: left;
