@@ -19,12 +19,6 @@ html {
   @include respond(tab-land) {
     font-size: 56.25%;
   }
-
-  // @include respond(tab-port) {
-  //   font-size: 50%;
-  // }
-
-  // font-size remains 50% for all smaller displays
 }
 
 body {

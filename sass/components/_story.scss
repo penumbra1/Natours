@@ -1,12 +1,25 @@
 .story {
   width: 75%;
   margin: 0 auto;
-  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
-  background-color: rgba($color-white, 0.6);
+  position: relative;
+  z-index: 0;
   border-radius: 3px;
   padding: 6rem;
   font-size: $default-font-size;
-  transform: skewX(-12deg);
+
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba($color-white, 0.6);
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    transform: skew(-12deg, 0deg);
+  }
 
   @include respond(tab-port) {
     padding: 4rem;
@@ -24,13 +37,16 @@
     width: 85%;
   }
 
-  // Skew all direct children back
   & > * {
-    transform: skewX(12deg);
-
     @include respond(phone) {
       transform: none;
     }
+  }
+
+  &__text {
+    // Improve Chrome font rendering during animation
+    transform: translate3d(0, 0, 0);
+    filter: blur(0.0000001px);
   }
 
   &__shape {
@@ -38,6 +54,7 @@
     height: 15rem;
     float: left;
     position: relative;
+    isolation: isolate;
     margin-right: 3.5rem;
     clip-path: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
@@ -65,7 +82,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 20%);
+    transform: translate(-50%, -20%);
     color: $color-white;
     text-transform: uppercase;
     font-size: 1.8rem;
