@@ -4,6 +4,8 @@ Here are some of my improvements to the codebase and the design:
 
 ## Typography & layout
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/penumbra1/Natours.svg)](https://greenkeeper.io/)
+
 - Lots of tiny tweaks: margins, padding, font-sizes, skew angles etc.
 - Muli instead of Lato: I found its stroke width more consistent in all-caps titles, and its lower x-height looks more casual;
 - New h2 hover animation: the original one seemed too striking, so I came up with a subtler "swing" and gradient displacement;
